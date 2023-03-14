@@ -4,8 +4,9 @@
 import os
 import openai
 import utils
+from OpenAIClient import OpenAIClient
 
-openai.api_key = os.environ['OPENAI_KEY']
+openaiClient = OpenAIClient(os.environ['OPENAI_KEY'])
 
 sampleFilePath = os.path.join(
     os.environ['PROJECT_ROOT'], os.environ['SAMPLE_FILE'])
@@ -14,4 +15,8 @@ sampleFile = utils.loadFile(sampleFilePath)
 
 sentences = utils.splitSentences(sampleFile)
 
-print(sentences[-1])
+sampleSentence = sentences[-1]
+
+sampleEmbeddings = openaiClient.embedSentence(sampleSentence)
+
+print(sampleEmbeddings)

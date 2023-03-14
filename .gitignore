@@ -1,3 +1,5 @@
 .env
 .venv
 io/data/original-sample.txt
+**/*.pyc
+**/__pycache__
