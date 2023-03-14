@@ -16,23 +16,48 @@ Things to consider when making the project structure:
 Read more:
 [Breaking a text into sequences](https://giovannefeitosa.notion.site/Breaking-a-text-into-sequences-4a453b09ee224ead8323fd3981216cfb)
 
-## [WIP] Step 3: Process sentences with the Embeddings API
+## [Done] Step 3: Create initial test with OpenAI's API
 
-I just finished doing a successful test with the Embeddings API.
+I tried the following:
 
-I've decided that after getting the embeddings, I will save them to a file.
-So I don't need to call the API every time I want to use the embeddings.
+1. Process sentences with the Embeddings API
+2. Calculate the cosine similarity between the question and the embeddings
 
-This allows us to avoid unecessary API calls.
+This test failed because the answers were not good enough.
 
-### TODO:
+Conclusion: Comparing the question with the most similar embeddings does not return good answers.
+            The most similar phrase is not necessarily the answer.
 
-- [ ] Load the embeddings from a file
-- [ ] If the embeddings file doesn't exist,
-      then get the embeddings from the API and save the results to a file
-- [ ] Create a notion page to explain 
-      how to create embeddings using the API
+## [Done] SPIKE:
 
-## [TODO] Step 4: Get input questions and find the answers
+In order to improve the answers, it's useful to refer to the official docs and examples.
 
-(doing a search through the embeddings)
+I took some time to read the docs (again) and the examples in the 
+[OpenAI Cookbook repository](https://github.com/openai/openai-cookbook/).
+
+The most interesting example I found is the 
+[Question Answering using Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/Question_answering_using_embeddings.ipynb).
+
+What I've learnt:
+
+- We can use OpenAI completion API to generate synthetic data and augment our dataset
+- We can use any kind of machine learning algorithm to train a model that can answer questions
+- It's a good practice to label the data before doing any kind of calculation
+- It's a good practice to use completions API to generate synthetic data and augment our dataset
+
+### [Done] Replanning
+
+- [ ] Create a command to transform a txt file into something we can work with.
+      Command: `bash manage.sh prepare <txt_file> <output_jsonl_file>`.
+      I will use the same jsonl format [described here](https://platform.openai.com/docs/guides/fine-tuning)
+
+- [ ] Create a command to train a model that answers questions based in the jsonl file
+      Command: `bash manage.sh train <jsonl_file> <output_model_file>`
+
+- [ ] Create a command to answer questions based on the trained model
+      Command: `bash manage.sh answer <model_file> <question>`
+
+- [ ] Create a command to run a demo webserver where we can ask questions
+      Command: `bash manage.sh serve <model_file>`
+
+TODO: I need to decide which strategy I will use to train the model.
