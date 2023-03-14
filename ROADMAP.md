@@ -45,7 +45,7 @@ What I've learnt:
 - It's a good practice to label the data before doing any kind of calculation
 - It's a good practice to use completions API to generate synthetic data and augment our dataset
 
-### [Done] Replanning
+## [Done] Replanning
 
 - [ ] Create a command to transform a txt file into something we can work with.
       Command: `bash manage.sh prepare <txt_file> <output_jsonl_file>`.
@@ -60,4 +60,36 @@ What I've learnt:
 - [ ] Create a command to run a demo webserver where we can ask questions
       Command: `bash manage.sh serve <model_file>`
 
-TODO: I need to decide which strategy I will use to train the model.
+## [WIP] Create command: `prepare`
+
+For the preparation, we should follow this steps:
+
+* Read the text file
+* Split text into sentences
+* Use OpenAI completion API to generate synthetic questions for each sentence
+* Save the questions and the answers in a jsonl file
+
+## [WIP] Create command: `train`
+
+For the training, we should follow this steps:
+
+* Read the jsonl file
+* Train a model that can answer questions based on the jsonl file
+  TODO: I need to decide which strategy I will use to train the model.
+* Save the model in a file
+
+## [WIP] Create command: `answer`
+
+For the answering, we should follow this steps:
+
+* Read the model file
+* Ask the question to the model
+* Return the answer
+
+## [WIP] Create command: `serve`
+
+For the serving, we should follow this steps:
+
+* Read the model file
+* Create a [Gradio](https://www.gradio.app/) webserver
+* Print the browser url in the terminal
