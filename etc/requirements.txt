@@ -1,6 +1,14 @@
+# openai
 openai==0.27.2
+scipy
+scikit-learn
+# end openai
+
 # spacy       https://pypi.org/project/spacy/
 setuptools
 wheel
 spacy
 # end spacy
+
+numpy
+pandas

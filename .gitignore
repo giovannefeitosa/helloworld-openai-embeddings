@@ -3,3 +3,5 @@
 io/data/original-sample.txt
 **/*.pyc
 **/__pycache__
+io/data/generated/**
+!io/data/generated/.gitkeep
