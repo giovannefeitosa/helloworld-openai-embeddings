@@ -46,7 +46,7 @@ class Dataset:
         # save all the generated questions and answers in a generated dataset file
         # Default: io/generated/dataset.json
         print("Writing dataset to file: ", outputFile)
-        file.writeFile(outputFile, json.dumps(allQaRows))
+        file.writeFile(outputFile, allQaRows)
 
     # Receives a raw text and returns an array of sentences
     def splitSentences(self, text):

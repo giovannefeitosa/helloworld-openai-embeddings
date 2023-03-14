@@ -6,9 +6,9 @@ class File:
         with open(file, 'r') as f:
             return f.read()
 
-    def writeFile(self, outputFilePath, jsonData):
+    def writeFile(self, outputFilePath, data):
         with open(outputFilePath, 'w') as f:
-            f.write(json.dumps(jsonData))
+            f.write(json.dumps(data))
 
     def exists(self, filePath):
         try:
