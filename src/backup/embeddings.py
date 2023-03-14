@@ -1,5 +1,5 @@
 import os
-from OpenAIClient import openaiClient
+from commons.OpenAIClient import openaiClient
 import utils
 import numpy as np
 import pandas as pd

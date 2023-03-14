@@ -69,6 +69,25 @@ For the preparation, we should follow this steps:
 * Use OpenAI completion API to generate synthetic questions for each sentence
 * Save the questions and the answers in a jsonl file
 
+I've created this file: `io/prompts/generateQuestionsPerson.prompt.txt` that is meant to be used with the OpenAI completion API.
+To generate questions for each sentence in the input text.
+
+This prompt was based in [this doc](https://github.com/openai/openai-cookbook/blob/main/techniques_to_improve_reliability.md)
+
+I use `gpt-3.5-turbo` as the model. Because [here](https://platform.openai.com/docs/guides/chat/chat-vs-completions)
+it says:
+
+> Because `gpt-3.5-turbo` performs at a similar capability 
+> to `text-davinci-003` but at 10% the price per token, 
+> we recommend `gpt-3.5-turbo` for most use cases.
+
+TODO: Read this amazing paper about a stunning technique called `STaR: Self-Taught Reasoner`.<br/>
+      [Paper](https://arxiv.org/pdf/2203.14465.pdf).
+
+- [x] (dataset file) Generate a json file with questions and answers based in the text
+- [ ] (embeddings file) Generate a embeddings file based in the dataset file
+
+
 ## [WIP] Create command: `train`
 
 For the training, we should follow this steps:

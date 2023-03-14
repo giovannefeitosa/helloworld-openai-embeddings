@@ -1,6 +1,6 @@
 # this is the entrypoint for the application
 from embeddings import loadEmbeddings
-from OpenAIClient import openaiClient
+from commons.OpenAIClient import openaiClient
 
 # a list of embeddings that we will use to compare the question
 df = loadEmbeddings()

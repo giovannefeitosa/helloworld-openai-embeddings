@@ -11,18 +11,40 @@ def cosineSimilarity(embedding1, embedding2):
     return dot(embedding1, embedding2) / (norm(embedding1) * norm(embedding2))
 
 
+promptGenerateQuestion = """
+    Question: test
+    hi : tests
+""".strip()
+
+
 class OpenAIClient:
-    def __init__(self, key, modelName="text-embedding-ada-002"):
+    def __init__(self, key, embeddingModel="text-embedding-ada-002", completionModel="gpt-3.5-turbo"):
         openai.api_key = key
-        self.modelName = modelName
+        self.embeddingModel = embeddingModel
+        self.completionModel = completionModel
+
+    # generateQuestions function used by `prepare`
+    # https://github.com/openai/openai-cookbook/blob/main/techniques_to_improve_reliability.md
+    def generateQuestions(self, answer, numQuestions=3):
+        questions = []
+        for i in range(numQuestions):
+            response = openai.ChatCompletion.create(
+                model=self.completionModel,
+                messages=[
+                    self.generatePrompt(
+                        answer, 'io/prompts/generateQuestionsPerson.prompt.txt')
+                ]
+            )
+            questions.append(response['choices'][0]['text'])
 
     # embeds a single sentence
     # TODO: consider embedding multiple sentences at once
+
     def embedSentence(self, text):
         text = text.replace("\n", " ")  # question: Do i need this line?
         response = openai.Embedding.create(
             input=[text],
-            model=self.modelName,
+            model=self.embeddingModel,
         )
         return response
 

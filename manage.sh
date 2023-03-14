@@ -23,9 +23,10 @@ function main() {
             "$PYTHON_ALIAS" -m spacy download en_core_web_sm
             echo "Done."
             ;;
-        # activates the venv environment
-        "activate")
+        # generate dataset and embeddings
+        "prepare")
             source "$VENV_FOLDER/bin/activate"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateDataset.py" "$@"
             ;;
         # runs the application
         "run")

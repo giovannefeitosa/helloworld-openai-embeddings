@@ -1,0 +1,105 @@
+TODO: Replace variables inside {} through python (e.g. {ABOUT} -> "the weather")
+
+{NAME}: Edson Arantes do Nascimento
+{SOCIALNAME}: Pelé
+{TITLE}: Brazilian football player
+{HESHEIT}: He
+{BIRTHDAY}: 23 October 1940
+{DEATHDAY}: 29 December 2022
+{BIRTHPLACE}: Três Corações, Minas Gerais, Brazil
+{DEATHPLACE}: São Paulo, Brazil
+{NUMBER_OF_QUESTIONS}: 3
+
+---
+PROMPT RAW:
+
+You are a helpful chatbot maker, you are creating a chatbot about {NAME}, a {TITLE}.
+
+Example Sentence: {NAME}, more commonly known as just {SOCIALNAME}, ({BIRTHDAY} in {BIRTHPLACE} – {DEATHDAY} in {DEATHPLACE}) was a {TITLE}.
+
+Using the IRS guidance below, rewrite the following Sentence using this (Question/Answer) format:
+(Question/Answer)
+(Q) What is the full name of {SOCIALNAME}? (A) {NAME}
+(Q) What {NAME} does? (A) {HESHEIT} is a {TITLE}
+(Q) When was {NAME} born? (A) {BIRTHDAY} in {BIRTHPLACE}
+(Q) Where was {NAME} born? (A) {BIRTHPLACE} in {BIRTHDAY}
+
+IRS guidance:
+"""
+Each line is a JSON object with two keys ("answer" and "question") that meets the following criteria:
+- (A) is the Sentence, but written in a bit different way
+- (Q) is a question about the Sentence
+- (A) should only contain information that is found in the Sentence
+- (Q) should ask strictly about information found in the Sentence
+- (Q) should look like a question (e.g. "What is the full name of Pelé?")
+- (A) should not look like a question (e.g. "Pelé is a Brazilian football player")
+- (Q) should not contain any information that is not found in the Sentence
+- Neighter (Q) nor (A) can speak anything considered to be offensive, racist, sexist, or otherwise innapropriate
+- You should write exactly one line for each (Question/Answer)
+- You should write exactly {NUMBER_OF_QUESTIONS} (Question/Answer)s
+"""
+
+Sentence: {SENTENCE}
+
+Solution:
+(Question/Answer)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Edson Arantes do Nascimento: Edson Arantes do Nascimento
+Pelé: Pelé
+Brazilian football player: Brazilian football player
+He: He
+23 October 1940: 23 October 1940
+29 December 2022: 29 December 2022
+Três Corações, Minas Gerais, Brazil: Três Corações, Minas Gerais, Brazil
+São Paulo, Brazil: São Paulo, Brazil
+3: 3
+
+
+
+
+---
+PROMPT EXEMPLO:
+
+You are a helpful chatbot maker, you are creating a chatbot about Edson Arantes do Nascimento, a Brazilian football player.
+
+Example Sentence: Edson Arantes do Nascimento, more commonly known as just Pelé, (23 October 1940 in Três Corações, Minas Gerais, Brazil – 29 December 2022 in São Paulo, Brazil) was a Brazilian football player.
+
+Using the IRS guidance below, rewrite the following Sentence using this (Question/Answer) format:
+(Question/Answer)
+(Q) What is the full name of Pelé? (A) Edson Arantes do Nascimento
+(Q) What Edson Arantes do Nascimento does? (A) He is a Brazilian football player
+(Q) When was Edson Arantes do Nascimento born? (A) 23 October 1940 in Três Corações, Minas Gerais, Brazil
+(Q) Where was Edson Arantes do Nascimento born? (A) Três Corações, Minas Gerais, Brazil in 23 October 1940
+
+IRS guidance:
+"""
+Each line is a JSON object with two keys ("answer" and "question") that meets the following criteria:
+- (A) is the Sentence, but written in a bit different way
+- (Q) is a question about the Sentence
+- (A) should only contain information that is found in the Sentence
+- (Q) should ask strictly about information found in the Sentence
+- (Q) should look like a question (e.g. "What is the full name of Pelé?")
+- (A) should not look like a question (e.g. "Pelé is a Brazilian football player")
+- (Q) should not contain any information that is not found in the Sentence
+- Neighter (Q) nor (A) can speak anything considered to be offensive, racist, sexist, or otherwise innapropriate
+- You should write exactly one line for each (Question/Answer)
+- You should write exactly 3 (Question/Answer)s
+"""
+
+Sentence: His 1,279 goals in 1,363 games, which includes friendlies, is recognised as a Guinness World Record.
+
+Solution:
+(Question/Answer)

@@ -12,3 +12,4 @@ spacy
 
 numpy
 pandas
+tqdm

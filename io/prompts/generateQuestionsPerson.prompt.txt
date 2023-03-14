@@ -1,0 +1,30 @@
+You are a helpful chatbot maker, you are creating a chatbot about {NAME}, a {TITLE}.
+
+Example Sentence: {NAME}, more commonly known as just {SOCIALNAME}, ({BIRTHDAY} in {BIRTHPLACE} – {DEATHDAY} in {DEATHPLACE}) was a {TITLE}.
+
+Using the IRS guidance below, rewrite the following Sentence using this (Question/Answer) format:
+(Question/Answer)
+(Q) What is the full name of {SOCIALNAME}? (A) {NAME}
+(Q) What {NAME} does? (A) {HESHEIT} is a {TITLE}
+(Q) When was {NAME} born? (A) {BIRTHDAY} in {BIRTHPLACE}
+(Q) Where was {NAME} born? (A) {BIRTHPLACE} in {BIRTHDAY}
+
+IRS guidance:
+"""
+Each line is a JSON object with two keys ("answer" and "question") that meets the following criteria:
+- (A) is the Sentence, but written in a bit different way
+- (Q) is a question about the Sentence
+- (A) should only contain information that is found in the Sentence
+- (Q) should ask strictly about information found in the Sentence
+- (Q) should look like a question (e.g. "What is the full name of Pelé?")
+- (A) should not look like a question (e.g. "Pelé is a Brazilian football player")
+- (Q) should not contain any information that is not found in the Sentence
+- Neighter (Q) nor (A) can speak anything considered to be offensive, racist, sexist, or otherwise innapropriate
+- You should write exactly one line for each (Question/Answer)
+- You should write exactly {NUMBER_OF_QUESTIONS} (Question/Answer)s
+"""
+
+Sentence: {SENTENCE}
+
+Solution:
+(Question/Answer)
