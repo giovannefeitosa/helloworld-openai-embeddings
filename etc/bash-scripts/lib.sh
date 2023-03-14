@@ -7,7 +7,7 @@ function load_environment_variables() {
 
     # default environment variables
     export PROJECT_ROOT=$(cd "$HERE/../.."; pwd)
-    export VENV_FOLDER="$PROJECT_ROOT/io/venv"
+    export VENV_FOLDER="$PROJECT_ROOT/.venv"
     if [ -d "$VENV_FOLDER" ]; then
         # if we have venv folder, use python and pip from there
         export PYTHON_ALIAS="$VENV_FOLDER/bin/python"

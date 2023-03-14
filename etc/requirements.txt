@@ -1,1 +1,6 @@
 openai==0.27.2
+# spacy       https://pypi.org/project/spacy/
+setuptools
+wheel
+spacy
+# end spacy
