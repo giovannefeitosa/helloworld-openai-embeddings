@@ -39,6 +39,11 @@ function main() {
             source "$VENV_FOLDER/bin/activate"
             "$PYTHON_ALIAS" "$PROJECT_ROOT/src/train.py" "$@"
             ;;
+        # starts a demo webserver
+        "serve")
+            source "$VENV_FOLDER/bin/activate"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/serve.py" "$@"
+            ;;
         *)
             echo "Unknown action: $action"
             exit 1

@@ -2,7 +2,6 @@ import os
 from commons.OpenAIClient import openaiClient
 import utils
 import numpy as np
-import pandas as pd
 import pickle
 
 # sample and embeddings file paths

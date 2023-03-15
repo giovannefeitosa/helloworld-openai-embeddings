@@ -92,7 +92,10 @@ For answering a single question.
 
 I can use this command to try different prompts and strategies to answer questions.
 
-## [WIP] Create command: `train`
+In fact I did, and after some failings trying to calculate the cosine similarity between the question and the embeddings,
+I opted to use LogisticRegression from sklearn.
+
+## [Done] Create command: `train`
 
 For the training, we should follow this steps:
 
