@@ -75,15 +75,12 @@ class OpenAIClient:
         maxSimilarityIndex = 0
         for i, embedding in enumerate(embeddingsToSearch):
             # similarity = cosineSimilarity(
-            #     np.array(questionEmbedding['data'][0]['embedding']), embedding)
             similarity = cosine_similarity(embeddedQuestion, embedding)
             if similarity > maxSimilarity:
                 maxSimilarity = similarity
                 maxSimilarityIndex = i
         # return the most similar sentence index
         return maxSimilarityIndex
-        # return the most similar embedding
-        # return df.iloc[maxSimilarityIndex].sentences
 
 
 openaiClient = OpenAIClient()

@@ -11,7 +11,7 @@ class Dataset:
 
     # Receives an <inputFile>
     # generate synthetic questions and answers
-    # save to <outputFile>
+    # save to io/generated/dataset.json
     def generateDatasetFromFile(self, inputFile):
         outputFile = configs.generatedDatasetPath
         # allQaRows is an array where each item is a dict with {"question","answer"} keys

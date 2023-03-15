@@ -56,7 +56,7 @@ What I've learnt:
 - [x] Create a command to answer questions based on the trained model<br/>
       Command: `bash manage.sh ask "<question>"`
 
-- [ ] Create a command to run a demo webserver where we can ask questions<br/>
+- [x] Create a command to run a demo webserver where we can ask questions<br/>
       Command: `bash manage.sh serve <model_file>`
 
 ## [Done] Create command: `prepare`
@@ -104,10 +104,17 @@ For the training, we should follow this steps:
   TODO: I need to decide which strategy I will use to train the model.
 * Save the model in a file
 
-## [WIP] Create command: `serve`
+## [Done] Create command: `serve`
 
 For the serving, we should follow this steps:
 
 * Read the model file
 * Create a [Gradio](https://www.gradio.app/) webserver
 * Print the browser url in the terminal
+
+## [Done] Update local docs
+
+- [x] Update [README.md](../README.md)
+- [x] Update [docs/ROADMAP.md](./ROADMAP.md)
+- [x] Update [docs/RESULTS.md](./RESULTS.md)
+- [x] Review and cleanup the final code

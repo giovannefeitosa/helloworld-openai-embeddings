@@ -9,6 +9,8 @@ class Embeddings:
     def __init__(self, debug=False):
         self.debug = debug
 
+    # generate synthetic questions and answers
+    # save to io/generated/embeddings.json
     def generateEmbeddings(self):
         inputFilePath = configs.generatedDatasetPath
         outputFilePath = configs.generatedEmbeddingsPath
@@ -27,6 +29,7 @@ class Embeddings:
         print("Writing embeddings to file: ", outputFilePath)
         file.writeFile(outputFilePath, embeddings)
 
+    # load embeddings from file
     def loadEmbeddings(self):
         inputFilePath = configs.generatedEmbeddingsPath
         embeddings = file.readJsonFile(inputFilePath)

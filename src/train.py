@@ -5,14 +5,12 @@
 #
 #   io/generated/dataset.json
 #
-import numpy as np
 from prepareutils.Embeddings import embeddings
 from prepareutils.Dataset import dataset
-from commons.OpenAIClient import openaiClient
-from commons.Configs import configs
 from commons.Model import model
 
 
+# train the model using sklearn
 def train():
     print("Training model...")
     # load dataset and embeddings

@@ -2,23 +2,57 @@
 
 The goal of this project is to create a question answering demo using OpenAI embeddings and a sample text.
 
-I've created a file called [ROADMAP.md](./ROADMAP.md) that breaks down the solution I choose.
+For more information, please read the [project roadmap](docs/ROADMAP.md) and the [solution proposal](docs/RESULTS.md).
 
-## My current environment
+## Requirements
 
-* Windows 11 with WSL 2 (Ubuntu)
-* Python  3.10.6
-* Venv    3.10.6
-* Pip     22.0.2
+* Unix (Ubuntu, WSL 2, etc.)
+* Python  >  3
+* Pip     >= 22
+* Venv    >  3
 
 You should already have these dependencies installed.
 
-This project is meant to run in Ubuntu or WSL 2.
+## Install
 
-## Setup
+Install the python dependencies:
 
-Install the dependencies:
-
-```bash
+```
 bash manage.sh install
+```
+
+## Preapre
+
+Generate synthetic questions and embeddings:
+
+```
+bash manage.sh prepare "io/data/sample.txt"
+```
+
+> Note: You must pass the path to a text file as the first argument.
+
+## Train
+
+Train a model to answer questions:
+
+```
+bash manage.sh train
+```
+
+## Ask
+
+Ask a question through the command line:
+
+```
+bash manage.sh ask "What is the name of the main character?"
+```
+
+> Note: Please use double quotes to pass the question.
+
+## Demo webserver
+
+Start a demo webserver:
+
+```
+bash manage.sh serve
 ```
