@@ -1,6 +1,6 @@
 # Command:
 #   bash manage.sh prepare <txt_file>
-#
+# --------------------------------------------------
 # This command will create a dataset.json file containing a list of questions and answers
 # in json format. This file will be used to generate embeddings.
 #

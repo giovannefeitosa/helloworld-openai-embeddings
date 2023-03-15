@@ -27,6 +27,7 @@ function main() {
         "prepare")
             source "$VENV_FOLDER/bin/activate"
             "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateDataset.py" "$@"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateEmbeddings.py" "$@"
             ;;
         # runs the application
         "run")

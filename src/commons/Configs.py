@@ -16,6 +16,7 @@ class Configs:
         self.PROMPT_PERSON_NUMBER_OF_QUESTIONS = os.environ['PROMPT_PERSON_NUMBER_OF_QUESTIONS']
         # openai
         self.chatCompletionModel = "gpt-3.5-turbo"
+        self.embeddingsModel = "text-embedding-ada-002"
         # prompt files
         self.promptsDir = f"{os.environ['PROJECT_ROOT']}/io/prompts"
         # generated files
