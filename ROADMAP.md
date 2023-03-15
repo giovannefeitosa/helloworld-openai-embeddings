@@ -50,11 +50,11 @@ What I've learnt:
 - [x] Create a command to transform a txt file into a dataset with questions and answers.<br/>
       Command: `bash manage.sh prepare <txt_file>`.
 
-- [ ] Create a command to train a model that answers questions based in the dataset file<br/>
+- [x] Create a command to train a model that answers questions based in the dataset file<br/>
       Command: `bash manage.sh train`
 
-- [ ] Create a command to answer questions based on the trained model<br/>
-      Command: `bash manage.sh answer <model_file> <question>`
+- [x] Create a command to answer questions based on the trained model<br/>
+      Command: `bash manage.sh ask "<question>"`
 
 - [ ] Create a command to run a demo webserver where we can ask questions<br/>
       Command: `bash manage.sh serve <model_file>`

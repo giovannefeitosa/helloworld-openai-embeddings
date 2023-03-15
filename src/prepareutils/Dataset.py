@@ -6,7 +6,7 @@ from commons.SpacyUtils import spacyUtils
 
 
 class Dataset:
-    def __init__(self, debug=True):
+    def __init__(self, debug=False):
         self.debug = debug
 
     # Receives an <inputFile>
@@ -43,9 +43,6 @@ class Dataset:
                     print("Sentence: ", sent)
                     print("Q: ", x['question'])
                     print("A: ", x['answer'])
-                    if x['question'] == '' or x['answer'] == '':
-                        print("Error: empty question or answer")
-                        exit(1)
         # save all the generated questions and answers in a generated dataset file
         # Default: io/generated/dataset.json
         print("Writing dataset to file: ", outputFile)

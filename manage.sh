@@ -34,7 +34,12 @@ function main() {
             source "$VENV_FOLDER/bin/activate"
             "$PYTHON_ALIAS" "$PROJECT_ROOT/src/ask.py" "$@"
             ;;
-        "*")
+        # train the model
+        "train")
+            source "$VENV_FOLDER/bin/activate"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/train.py" "$@"
+            ;;
+        *)
             echo "Unknown action: $action"
             exit 1
             ;;

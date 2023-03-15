@@ -7,7 +7,7 @@ import json
 
 
 class OpenAIClient:
-    def __init__(self, debug=True):
+    def __init__(self, debug=False):
         self.debug = debug
         openai.api_key = configs.OPENAI_KEY
         self.embeddingsModel = configs.embeddingsModel

@@ -20,4 +20,10 @@ Results: The results were bad.
 
 Action: Create a neural network to select the best answer.
 
-## Try 3 - neural network
+## Try 3 - Train a neural network
+
+Created a demo training at [src/train.ipynb](./src/train.ipynb) using sklearn.
+
+Created `bash manage.sh train` command to train the model.
+
+Results: It worked!

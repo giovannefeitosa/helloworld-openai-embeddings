@@ -24,6 +24,8 @@ class Configs:
         self.generatedEmbeddingsPath = f"{os.environ['PROJECT_ROOT']}/io/generated/embeddings.json"
         # spacy
         self.spacyModel = 'en_core_web_sm'
+        # model
+        self.generatedModelPath = f"{os.environ['PROJECT_ROOT']}/io/generated/model.sklearn"
 
 
 configs = Configs()

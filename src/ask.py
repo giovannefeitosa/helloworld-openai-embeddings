@@ -9,6 +9,7 @@
 import sys
 from commons.Configs import configs
 from commons.File import file
+from commons.Model import model
 from commons.OpenAIClient import openaiClient
 from prepareutils.Dataset import dataset
 from prepareutils.Embeddings import embeddings
@@ -16,17 +17,16 @@ import json
 
 if __name__ == "__main__":
     question = sys.argv[1]
-    # load dataset and embeddings
+    # load the model
+    clf = model.load()
+    # embed question
+    questionEmbedding = openaiClient.generateEmbeddings([question])[0]
+    # predict answer index
+    answerIndex = clf.predict([questionEmbedding]).item()
+    # load dataset
     qaDataset = dataset.loadDataset()
-    questionEmbeddings, answerEmbeddings = embeddings.loadEmbeddings()
-    # search for the best answer
-    embeddedQuestion = openaiClient.generateEmbeddings([question])[0]
-    bestIndex = openaiClient.searchBestEmbeddingIndex(
-        embeddedQuestion,
-        questionEmbeddings,
-        # questionEmbeddings + answerEmbeddings,
-    )
-    bestAnswer = qaDataset[bestIndex]
+    # get answer
+    bestAnswer = qaDataset[answerIndex]
+    # print
     print("Best answer: ")
-    print(f"index: {bestIndex}")
-    print(f"answer: {json.dumps(bestAnswer)}")
+    print(bestAnswer["answer"])
