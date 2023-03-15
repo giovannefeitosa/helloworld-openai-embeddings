@@ -29,10 +29,10 @@ function main() {
             "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateDataset.py" "$@"
             "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateEmbeddings.py" "$@"
             ;;
-        # runs the application
-        "run")
+        # ask a question
+        "ask")
             source "$VENV_FOLDER/bin/activate"
-            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/main.py"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/ask.py" "$@"
             ;;
         "*")
             echo "Unknown action: $action"

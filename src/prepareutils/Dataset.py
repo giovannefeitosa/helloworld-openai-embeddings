@@ -6,13 +6,14 @@ from commons.SpacyUtils import spacyUtils
 
 
 class Dataset:
-    def __init__(self, debug=False):
+    def __init__(self, debug=True):
         self.debug = debug
 
     # Receives an <inputFile>
     # generate synthetic questions and answers
     # save to <outputFile>
-    def generateDatasetFromFile(self, inputFile, outputFile):
+    def generateDatasetFromFile(self, inputFile):
+        outputFile = configs.generatedDatasetPath
         # allQaRows is an array where each item is a dict with {"question","answer"} keys
         # ? should I use a list of tuples instead?
         allQaRows = []
@@ -33,18 +34,26 @@ class Dataset:
                 'NUMBER_OF_QUESTIONS': configs.PROMPT_PERSON_NUMBER_OF_QUESTIONS,
                 'SENTENCE': sent
             })
-            allQaRows.extend(openaiClient.generateSyntheticQuestions(prompt))
-            # ----------------------------------------------
+            genq = openaiClient.generateSyntheticQuestions(
+                prompt, debugSentence=sent)
+            allQaRows.extend(genq)
             # debug
             if self.debug:
-                for x in allQaRows:
+                for x in genq:
+                    print("Sentence: ", sent)
                     print("Q: ", x['question'])
                     print("A: ", x['answer'])
-            # ----------------------------------------------
+                    if x['question'] == '' or x['answer'] == '':
+                        print("Error: empty question or answer")
+                        exit(1)
         # save all the generated questions and answers in a generated dataset file
         # Default: io/generated/dataset.json
         print("Writing dataset to file: ", outputFile)
         file.writeFile(outputFile, allQaRows)
+
+    def loadDataset(self):
+        inputFilePath = configs.generatedDatasetPath
+        return file.readJsonFile(inputFilePath)
 
 
 dataset = Dataset()

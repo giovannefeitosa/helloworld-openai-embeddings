@@ -20,7 +20,4 @@ if __name__ == "__main__":
     inputFilePath = sys.argv[1]
     # Generate io/generated/dataset.json
     if not file.exists(configs.generatedDatasetPath):
-        dataset.generateDatasetFromFile(
-            inputFile=inputFilePath,
-            outputFile=configs.generatedDatasetPath,
-        )
+        dataset.generateDatasetFromFile(inputFile=inputFilePath)

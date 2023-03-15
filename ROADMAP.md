@@ -47,20 +47,19 @@ What I've learnt:
 
 ## [Done] Replanning
 
-- [ ] Create a command to transform a txt file into something we can work with.
-      Command: `bash manage.sh prepare <txt_file> <output_jsonl_file>`.
-      I will use the same jsonl format [described here](https://platform.openai.com/docs/guides/fine-tuning)
+- [x] Create a command to transform a txt file into a dataset with questions and answers.<br/>
+      Command: `bash manage.sh prepare <txt_file>`.
 
-- [ ] Create a command to train a model that answers questions based in the jsonl file
-      Command: `bash manage.sh train <jsonl_file> <output_model_file>`
+- [ ] Create a command to train a model that answers questions based in the dataset file<br/>
+      Command: `bash manage.sh train`
 
-- [ ] Create a command to answer questions based on the trained model
+- [ ] Create a command to answer questions based on the trained model<br/>
       Command: `bash manage.sh answer <model_file> <question>`
 
-- [ ] Create a command to run a demo webserver where we can ask questions
+- [ ] Create a command to run a demo webserver where we can ask questions<br/>
       Command: `bash manage.sh serve <model_file>`
 
-## [WIP] Create command: `prepare`
+## [Done] Create command: `prepare`
 
 For the preparation, we should follow this steps:
 
@@ -85,8 +84,13 @@ TODO: Read this amazing paper about a stunning technique called `STaR: Self-Taug
       [Paper](https://arxiv.org/pdf/2203.14465.pdf).
 
 - [x] (dataset file) Generate a json file with questions and answers based in the text
-- [ ] (embeddings file) Generate a embeddings file based in the dataset file
+- [x] (embeddings file) Generate a embeddings file based in the dataset file
 
+## [Done] Create command: `ask`
+
+For answering a single question.
+
+I can use this command to try different prompts and strategies to answer questions.
 
 ## [WIP] Create command: `train`
 
@@ -96,14 +100,6 @@ For the training, we should follow this steps:
 * Train a model that can answer questions based on the jsonl file
   TODO: I need to decide which strategy I will use to train the model.
 * Save the model in a file
-
-## [WIP] Create command: `answer`
-
-For the answering, we should follow this steps:
-
-* Read the model file
-* Ask the question to the model
-* Return the answer
 
 ## [WIP] Create command: `serve`
 
