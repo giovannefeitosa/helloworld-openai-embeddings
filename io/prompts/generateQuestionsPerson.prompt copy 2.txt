@@ -9,6 +9,7 @@ Facts:
 - He is a {TITLE}, more commonly known as {SOCIALNAME}
 - He died in {DEATHPLACE} on {DEATHDAY}
 (Question/Answer)
+(Q) What is the opposite of pineapples? (A) I don't know
 (Q) What is the full name of {SOCIALNAME}? (A) {NAME}
 (Q) What {NAME} does? (A) {HESHEIT} is a {TITLE}
 (Q) When was {NAME} born? (A) {BIRTHDAY} in {BIRTHPLACE}
@@ -21,13 +22,16 @@ Write a list of facts that are in the Sentence, be specific when writing the fac
 Do not change the meaning of any facts. But you can combine multiple facts in one fact.
 Each (Question/Answer) line must be a string that meets the following criteria:
 - (A) is exactly the same Sentence, with all the facts
+- (A) should append total absolute scores together with relative scores
 - (Q) is a question about the facts in the Sentence
 - (Q) must be specific and unambiguous and must not contain multiple facts in the Sentence
 - (Q) must end with a question mark
+- (Q) should focus primarily on the facts about the career of {NAME}
+- For (Q), total absolute scores are more important then relative scores
+- The first (Q) is always a random unique generated question that is not related to any facts in the Sentence, not related to a human person or football
 - You should write exactly one line for each (Question/Answer)
 - You should write as many (Question/Answer) lines as there are facts in the Sentence
 - Should stop when there are no more facts in the Sentence
-- Attention with dates
 Think step by step.
 1. Read the Sentence
 2. Write all the facts, events, important dates and quantities in the Sentence

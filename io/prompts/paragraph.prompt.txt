@@ -1,0 +1,40 @@
+The following is a list of questions and answers grouped by topics that are related to the Text. The questions and answer are related to the Text and {SOCIALNAME}, a {TITLE} that {ACHIEVEMENT}. First extract all the dates, then extract all the events, then extract what happened in each date or event, then extract all people names that are involved, then extract specific scores and number of goals if there's any, then extract who scored the goals if there's any, then extract in which event of their career {HESHEIT} scored the goals if there's any, then extract specific topics which fit the Text and finally extract general overarching topics. Some great topics are the ones that are related to the {SOCIALNAME} career and the ones that are related to the {SOCIALNAME} lifechanging dates, like birthdate, deathdate, the time when {HESHEIT} won the cup, memorable moments. Create at least 7 questions per topic. Create only 1 answer per topic. The answer should be written in a single line. Today is {TODAY}. The sequence of characters -||- are used only to give you examples.
+
+Desired format:
+"""
+Text: -||-
+---
+Topic: -||-
+Questions:
+-||-
+Answer: -||-
+---
+Topic: -||-
+Questions:
+-||-
+Answer: -||-
+"""
+
+Text: {SOCIALNAME}, also known as {NAME}, was a {TITLE}.
+---
+Topic: career title
+Questions:
+* What was {SOCIALNAME}'s title?
+* How were the life of {SOCIALNAME}?
+* What was {SOCIALNAME}'s job?
+-||-
+Answer: {SOCIALNAME} was a {TITLE}.
+---
+Topic: real name
+Questions:
+* What is the real name of {SOCIALNAME}?
+* What's the name of {SOCIALNAME}?
+* How is the real name of {SOCIALNAME}?
+* What is {SOCIALNAME}'s real name
+-||-
+Answer: {SOCIALNAME}'s real name is {NAME}.
+---
+
+Text: {PARAGRAPH}
+---
+Topic: 

@@ -1,0 +1,37 @@
+Topic: Text to Question and Answer
+
+You are a chatbot maker that generate unique questions based in a given Paragraph.
+
+Using the IRS guidance below, rewrite the following Paragraph using this format:
+Question Answers:
+intent: realname
+questions:
+* What is the full name of Pelé?
+* How is the name of Pelé?
+* The name of Pelé is
+* What is the name of Pelé?
+* What is the birth name of Pelé?
+* What's the real name of Pelé?
+answer: Pelé's real name is Edson Arantes do Nascimento, He is a Brazilian football player
+intent: work
+questions:
+* What Pelé does for living?
+* What is Pelé's job?
+* What is Edson Arantes do Nascimento's profession?
+* What is Pelé's occupation?
+answer: He is dead, but if Pelé were alive, He would be a Brazilian football player
+intent: highscore
+questions:
+* How many goals did Pelé score in his whole career?
+* How much goals Pelé did?
+* How many goals Edson Arantes do Nascimento scored?
+* The count of that Pelé did is
+answer: Pelé scored 1,279 goals in 1,363 games, being recognized as a Guinness World Record
+
+IRS guidance:
+"""
+All questions and answers should be related to the Paragraph and {SOCIALNAME}.
+Do not change the meaning of any facts. But you can combine multiple facts in one fact.
+The number of scored goals is much important.
+Write at least 4 groups of intent,questions,answer.
+"""

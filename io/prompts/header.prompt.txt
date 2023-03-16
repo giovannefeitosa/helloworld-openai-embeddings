@@ -1,0 +1,35 @@
+The following is a list of questions and answers grouped by topics that are related to the Text below. The questions and answers are related to the Text and {SOCIALNAME}, a {TITLE} that {ACHIEVEMENT}.
+
+Desired format:
+"""
+Text: -||-
+---
+Topic: -||-
+Questions:
+* -||-
+Answer: -||-
+---
+Topic: -||-
+Questions:
+* -||-
+Answer: -||-
+"""
+
+Text: {SOCIALNAME}, also known as {NAME}, was a {TITLE}.
+---
+Topic: career title
+Questions:
+* What was {SOCIALNAME}'s title?
+* How were the life of {SOCIALNAME}?
+* What was {SOCIALNAME}'s job?
+Answer: {SOCIALNAME} was a {TITLE}.
+---
+Topic: real name
+Questions:
+* What is the real name of {SOCIALNAME}?
+* What's the name of {SOCIALNAME}?
+* How is the real name of {SOCIALNAME}?
+Answer: {SOCIALNAME}'s real name is {NAME}.
+---
+
+Text: 

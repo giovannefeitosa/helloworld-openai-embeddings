@@ -54,3 +54,18 @@ Created a demo training at [src/train.ipynb](./src/train.ipynb) using sklearn.
 Created `bash manage.sh train` command to train the model.
 
 Results: It worked!
+
+### Try 4 - Test prompts inspired by Rasa NLU
+
+I tried to generate intents and multiple questions for a single answer. Because I could spend less tokens and I could generate more questions.
+
+Results: It worked! But now the quality of questions is worse.
+
+#### Wierd results
+
+> topic: deathdate
+> Question: When did Pelé pass away?
+> The given text lists a future date (29 December 2022), so Pelé has not passed away yet as of October 2021.
+
+After this wierd result I added this to the prompt: `Today is {TODAY}` ([did it worked?]()).
+

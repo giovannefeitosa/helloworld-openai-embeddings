@@ -21,7 +21,7 @@ Install the python dependencies:
 bash manage.sh install
 ```
 
-## Preapre
+## Prepare
 
 Generate synthetic questions and embeddings:
 

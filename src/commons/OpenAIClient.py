@@ -12,31 +12,35 @@ class OpenAIClient:
         openai.api_key = configs.OPENAI_KEY
         self.embeddingsModel = configs.embeddingsModel
 
-    def buildPrompt(self, name, variables):
-        # used by prepareutils.Dataset
-        promptFilePath = os.path.join(configs.promptsDir, f"{name}.prompt.txt")
-        prompt = file.readFile(promptFilePath)
-        for key, value in variables.items():
-            prompt = prompt.replace(f"{{{key}}}", value)
-        return prompt
-
-    def generateSyntheticQuestions(self, prompt, debugSentence=""):
+    def generateSyntheticQuestions(self, prompt, debugSentence="", header="", **kwargs):
         # used by prepareutils.Dataset
         """Use OpenAI completion API to generate synthetic questions for each sentence"""
         # ----------------------------------------------
         # generate questions (responseText)
         # ----------------------------------------------
+        messages = []
+        if header != "":
+            messages.append({"role": "user", "content": header})
+        messages.append({"role": "user", "content": prompt})
         response = openai.ChatCompletion.create(
             model=configs.chatCompletionModel,
-            messages=[{"role": "user", "content": prompt}]
+            messages=messages,
+            **kwargs
         )
         responseText = response['choices'][0]['message']['content']
+        return response
         # ----------------------------------------------
         # split questions and answers
         # ----------------------------------------------
         # make all question/answers to be on the same line
         # and remove the response header
-        questionAnswers = responseText.replace("\n", "").split('(Q)', 1)[1]
+        try:
+            questionAnswers = responseText.replace("\n", "").split('(Q)', 1)[1]
+        except IndexError:
+            print("Error: responseText: ", debugSentence,
+                  '-', response['choices'])
+            # TODO: consider doing a retry
+            return []
         # one line per question/answer
         questionAnswers = questionAnswers.split('(Q)')
         # split question and answers
@@ -56,6 +60,9 @@ class OpenAIClient:
         return jsonData
 
     def generateEmbeddings(self, sentences):
+        """Generate embeddings for a list of sentences
+        returns a list of embeddings (float vectors)
+        """
         # used by prepareutils.Embeddings
         response = openai.Embedding.create(
             input=sentences,

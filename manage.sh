@@ -26,8 +26,8 @@ function main() {
         # generate dataset and embeddings
         "prepare")
             source "$VENV_FOLDER/bin/activate"
-            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateDataset.py" "$@"
-            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateEmbeddings.py" "$@"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateDataset.py" "$@" || exit 1
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/generateEmbeddings.py" "$@" || exit 1
             ;;
         # ask a question
         "ask")
@@ -43,6 +43,23 @@ function main() {
         "serve")
             source "$VENV_FOLDER/bin/activate"
             "$PYTHON_ALIAS" "$PROJECT_ROOT/src/serve.py" "$@"
+            ;;
+        # runs a prompt in Chat completion api
+        "prompt")
+            source "$VENV_FOLDER/bin/activate"
+            "$PYTHON_ALIAS" "$PROJECT_ROOT/src/run-prompt.py" "$@"
+            ;;
+        "ci")
+            # rm -f "$PROJECT_ROOT/io/generated/dataset.json" "$PROJECT_ROOT/io/generated/embeddings.json" "$PROJECT_ROOT/io/generated/model.sklearn"
+            rm -f "$PROJECT_ROOT/io/generated/embeddings.json" "$PROJECT_ROOT/io/generated/model.sklearn"
+            bash manage.sh prepare io/data/original-sample.txt || exit 1
+            bash manage.sh train || exit 1
+            echo "------------------------"
+            echo "How many goals did Pelé score in his career?"
+            bash manage.sh ask "How many goals did Pelé score in his career?" # expect like 1,279 goals in 1,363 games
+            echo "What is the opposite of Pelé?"
+            bash manage.sh ask "What is the opposite of Pelé?" # expect i don't know
+
             ;;
         *)
             echo "Unknown action: $action"

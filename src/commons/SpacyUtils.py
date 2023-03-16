@@ -11,7 +11,18 @@ class SpacyUtils:
         """Split text into sentences"""
         nlp = self.spacyLoad()
         doc = nlp(text)
-        return [str(sent.text).replace('"', '') for sent in doc.sents]
+        sentences = [str(sent.text).replace('"', '') for sent in doc.sents]
+        # group sentences in pairs
+        # ? does this improves or decreases the quality of the dataset?
+        sentences = [
+            f"{sentences[i]}. {sentences[i+1]}" for i in range(0, len(sentences) - 1, 2)]
+        return sentences
+
+    # Receives a raw text and returns an array of paragraphs
+    def splitParagraphs(self, text):
+        """Split text into paragraphs"""
+        paragraphs = [t for t in text.split('\n') if t.replace(' ', '') != '']
+        return paragraphs
 
     # Returns a spacy.load() model
     def spacyLoad(self):

@@ -9,7 +9,7 @@ class Model:
         self.debug = debug
 
     def train(self, x, y):
-        return LogisticRegression(solver='lbfgs', random_state=42).fit(x, y)
+        return LogisticRegression(solver='lbfgs', random_state=42, max_iter=150).fit(x, y)
 
     def save(self, clf):
         # save model

@@ -1,0 +1,37 @@
+Topic: Text to Question and Answer
+
+You are a chatbot maker that generate unique questions based in a given Paragraph.
+
+Using the IRS guidance below, rewrite the following Paragraph using this format:
+Question Answers:
+intent: realname
+questions:
+* What is the full name of {SOCIALNAME}?
+* How is the name of {SOCIALNAME}?
+* The name of {SOCIALNAME} is
+* What is the name of {SOCIALNAME}?
+* What is the birth name of {SOCIALNAME}?
+* What's the real name of {SOCIALNAME}?
+answer: {SOCIALNAME}'s real name is {NAME}, {HESHEIT} is a {TITLE}
+intent: work
+questions:
+* What {SOCIALNAME} does for living?
+* What is {SOCIALNAME}'s job?
+* What is {NAME}'s profession?
+* What is {SOCIALNAME}'s occupation?
+answer: He is dead, but if {SOCIALNAME} were alive, He would be a {TITLE}
+intent: highscore
+questions:
+* How many goals did {SOCIALNAME} score in his whole career?
+* How much goals {SOCIALNAME} did?
+* How many goals {NAME} scored?
+* The count of that {SOCIALNAME} did is
+answer: {SOCIALNAME} {ACHIEVEMENT}
+
+IRS guidance:
+"""
+All questions and answers should be related to the Paragraph and {SOCIALNAME}.
+Do not change the meaning of any facts. But you can combine multiple facts in one fact.
+The number of scored goals and event dates are very important.
+Create at least 5 questions for each answer.
+"""
